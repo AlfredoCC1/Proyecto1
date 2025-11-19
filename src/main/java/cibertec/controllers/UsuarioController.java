@@ -29,4 +29,12 @@ public class UsuarioController {
         return usuarioRepo.findAll();
     }
 
+    //Obtener usuario por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> buscar(@PathVariable Long id) {
+        return usuarioRepo.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
 }
