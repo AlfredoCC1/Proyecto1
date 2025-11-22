@@ -29,7 +29,7 @@ public class ProductoController {
 
     @PostMapping("/lote")
     public  ResponseEntity<String> registrarLote(@RequestBody List<Producto> productos) {
-        productoRepo.registrarLote(productos);
+        productoService.registrarLote(productos);
         return ResponseEntity.ok("Productos registrados exitosamente");
 
     }
