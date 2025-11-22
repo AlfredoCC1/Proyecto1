@@ -30,4 +30,11 @@ public class ProductoService {
             }
         }
     }
+
+    public List<Producto> listarTodo() {
+        return em.createQuery("select p from Producto p", Producto.class)
+                .setHint("org.hibernate.fetchSize",5)
+                .getResultList();
+
+    }
 }
